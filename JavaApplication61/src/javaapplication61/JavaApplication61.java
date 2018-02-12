@@ -5,10 +5,7 @@
  */
 package javaapplication61;
 
-/**
- *
- * @author Antonio Quijivix
- */
+
 public class JavaApplication61 {
 
     /**
