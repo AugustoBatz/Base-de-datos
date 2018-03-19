@@ -12,7 +12,6 @@ public class Conexion {
         {
             Class.forName("com.mysql.jdbc.Driver");
             cn = DriverManager.getConnection("jdbc:mysql://localhost/inventario", "root", "1234");
-            System.out.println("Conecto");
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
