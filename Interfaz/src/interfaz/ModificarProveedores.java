@@ -1,5 +1,6 @@
 package interfaz;
 
+import java.awt.Color;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -16,6 +17,7 @@ public class ModificarProveedores extends javax.swing.JFrame {
     public ModificarProveedores(String nombre, String nit, String direccion, String id) 
     {
         initComponents();
+        this.getContentPane().setBackground(Color.decode("#993399"));
         jTextField1.setText(nombre);
         jTextField2.setText(nit);
         jTextField3.setText(direccion);

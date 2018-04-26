@@ -1,12 +1,23 @@
 package interfaz;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import static javafx.scene.control.ButtonType.OK;
+import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 
 public class Login extends javax.swing.JFrame {
 
+    Conexion con = new Conexion();
+    Connection cn = con.conexion();
+    
     public Login() {
         initComponents();
+        jButton1.setVisible(true);
     }
 
     
@@ -89,13 +100,36 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jPasswordField1ActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        Menu m = new Menu (); 
-        m.setVisible(true);
-        this.dispose(); 
+        
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery("SELECT *FROM Usuarios");
+            
+            String datos[] = new String[2];
+            
+            while(rs.next())
+            {
+                datos[0] = rs.getString(2);
+                datos[1] = rs.getString(1);
+            }
+            
+            if (datos[0].equals(jTextField1.getText()) && datos[1].equals(jPasswordField1.getText()))
+            {      
+                Menu m = new Menu ();
+                m.setVisible(true);
+                this.dispose();
+            }
+            else
+            {
+                 JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos.");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton1MouseClicked
 
     public static void main(String args[]) {

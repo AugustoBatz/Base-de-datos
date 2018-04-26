@@ -83,6 +83,7 @@ public class Inventario extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jRadioButton5 = new javax.swing.JRadioButton();
         jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -98,7 +99,6 @@ public class Inventario extends javax.swing.JFrame {
         Regreso.setBorder(null);
         Regreso.setBorderPainted(false);
         Regreso.setFocusPainted(false);
-        Regreso.setOpaque(false);
         Regreso.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 RegresoMouseClicked(evt);
@@ -136,7 +136,6 @@ public class Inventario extends javax.swing.JFrame {
         Busquedas.setBorder(null);
         Busquedas.setBorderPainted(false);
         Busquedas.setFocusPainted(false);
-        Busquedas.setOpaque(false);
         Busquedas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 BusquedasMouseClicked(evt);
@@ -150,7 +149,6 @@ public class Inventario extends javax.swing.JFrame {
         Busquedas1.setBorder(null);
         Busquedas1.setBorderPainted(false);
         Busquedas1.setFocusPainted(false);
-        Busquedas1.setOpaque(false);
         Busquedas1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Busquedas1MouseClicked(evt);
@@ -167,6 +165,7 @@ public class Inventario extends javax.swing.JFrame {
 
             }
         ));
+        jTable1.setGridColor(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(jTable1);
 
         jLabel3.setText("Regresar al menu");
@@ -204,6 +203,13 @@ public class Inventario extends javax.swing.JFrame {
             }
         });
 
+        jButton4.setText("HISTORIAL");
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton4MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -215,16 +221,21 @@ public class Inventario extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel4)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel4)
+                                            .addComponent(jLabel5)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(10, 10, 10)
+                                                .addComponent(jLabel6)))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 148, Short.MAX_VALUE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jButton1)
                                         .addGap(56, 56, 56)
-                                        .addComponent(jButton2))
-                                    .addComponent(jLabel5)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(10, 10, 10)
-                                        .addComponent(jLabel6)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 148, Short.MAX_VALUE)
+                                        .addComponent(jButton2)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jButton4)
+                                        .addGap(75, 75, 75)))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel8)
                                     .addGroup(layout.createSequentialGroup()
@@ -261,7 +272,7 @@ public class Inventario extends javax.swing.JFrame {
                                 .addComponent(jRadioButton4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jRadioButton5)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap(24, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -275,8 +286,7 @@ public class Inventario extends javax.swing.JFrame {
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(Busqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton3)
-                        .addGap(0, 12, Short.MAX_VALUE))
+                        .addComponent(jButton3))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(19, 19, 19)
                         .addComponent(jLabel7)
@@ -288,11 +298,10 @@ public class Inventario extends javax.swing.JFrame {
                             .addComponent(jRadioButton4)
                             .addComponent(jRadioButton5))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Busquedas)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(Busquedas)))
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -304,7 +313,8 @@ public class Inventario extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jButton1)
-                                    .addComponent(jButton2))
+                                    .addComponent(jButton2)
+                                    .addComponent(jButton4))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel5))
                             .addComponent(Busquedas1))
@@ -518,19 +528,19 @@ public class Inventario extends javax.swing.JFrame {
         {
             String noproducto = jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString();
 
-            try {
-                PreparedStatement BorrarCompras = cn.prepareStatement("DELETE FROM detallecompra WHERE producto_idprod = '"+noproducto+"'");
-                BorrarCompras.executeUpdate();
-            } catch (SQLException ex) {
-                Logger.getLogger(Compras.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            
-            try {
-                PreparedStatement BorrarVentas = cn.prepareStatement("DELETE FROM detalleventa WHERE producto_idprod = '"+noproducto+"'");
-                BorrarVentas.executeUpdate();
-            } catch (SQLException ex) {
-                Logger.getLogger(Compras.class.getName()).log(Level.SEVERE, null, ex);
-            }
+//            try {
+//                PreparedStatement BorrarCompras = cn.prepareStatement("DELETE FROM detallecompra WHERE producto_idprod = '"+noproducto+"'");
+//                BorrarCompras.executeUpdate();
+//            } catch (SQLException ex) {
+//                Logger.getLogger(Compras.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//            
+//            try {
+//                PreparedStatement BorrarVentas = cn.prepareStatement("DELETE FROM detalleventa WHERE producto_idprod = '"+noproducto+"'");
+//                BorrarVentas.executeUpdate();
+//            } catch (SQLException ex) {
+//                Logger.getLogger(Compras.class.getName()).log(Level.SEVERE, null, ex);
+//            }
             
             try {
                 PreparedStatement BorrarFactura = cn.prepareStatement("DELETE FROM producto WHERE idprod = '"+noproducto+"'");
@@ -575,6 +585,12 @@ public class Inventario extends javax.swing.JFrame {
         jButton3.setVisible(false);
     }//GEN-LAST:event_jButton3MouseClicked
 
+    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+        Historia H = new Historia();
+        H.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton4MouseClicked
+
     public static void main(String args[]) {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -593,6 +609,7 @@ public class Inventario extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

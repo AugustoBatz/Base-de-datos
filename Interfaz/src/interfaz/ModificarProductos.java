@@ -1,5 +1,6 @@
 package interfaz;
 
+import java.awt.Color;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -15,6 +16,7 @@ public class ModificarProductos extends javax.swing.JFrame {
     
     public ModificarProductos(String id, String nombre, String preciov, String marca, String existencia, String precioc) {
         initComponents();
+        this.getContentPane().setBackground(Color.ORANGE);
         ID = id;
         jTextField1.setText(nombre);
         jTextField2.setText(preciov);

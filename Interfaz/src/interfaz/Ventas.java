@@ -90,7 +90,6 @@ public class Ventas extends javax.swing.JFrame {
         jTextField3 = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
-        jLabel15 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
@@ -135,6 +134,10 @@ public class Ventas extends javax.swing.JFrame {
             }
         });
 
+        jScrollPane2.setOpaque(false);
+
+        jPanel2.setOpaque(false);
+
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel12.setText("Detalle de factura:");
 
@@ -143,8 +146,6 @@ public class Ventas extends javax.swing.JFrame {
         jLabel14.setText("Tipo de pago:");
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Credito", "Efectivo" }));
-
-        jLabel15.setText("Fecha:");
 
         jButton2.setText("Siguiente");
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -156,11 +157,11 @@ public class Ventas extends javax.swing.JFrame {
         jLabel4.setText("NIT cliente:");
 
         jTextField2.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
-                jTextField2InputMethodTextChanged(evt);
-            }
             public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
                 jTextField2CaretPositionChanged(evt);
+            }
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+                jTextField2InputMethodTextChanged(evt);
             }
         });
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
@@ -194,28 +195,28 @@ public class Ventas extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(32, 32, 32)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel15)
                     .addComponent(jLabel12)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel14)
-                            .addComponent(jLabel13)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel2Layout.createSequentialGroup()
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel4)))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addGap(1, 1, 1)
-                                .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
-                            .addComponent(jTextField2)
-                            .addComponent(jTextField4))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(jLabel14)
+                                .addComponent(jLabel13)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel4)))
+                            .addGap(18, 18, 18)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                    .addGap(1, 1, 1)
+                                    .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
+                                .addComponent(jTextField2)
+                                .addComponent(jTextField4))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel6)))))
                 .addContainerGap(246, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -244,16 +245,18 @@ public class Ventas extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel14))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel15)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
+                .addGap(58, 58, 58)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(103, 103, 103))
+                .addContainerGap(152, Short.MAX_VALUE))
         );
 
         jScrollPane2.setViewportView(jPanel2);
 
         jTabbedPane1.addTab("Ingreso de Factura de Ventas", jScrollPane2);
+
+        jScrollPane1.setOpaque(false);
+
+        jPanel1.setOpaque(false);
 
         Busquedas1.setBackground(new java.awt.Color(255, 255, 255));
         Busquedas1.setForeground(javax.swing.UIManager.getDefaults().getColor("Button.highlight"));
@@ -271,6 +274,7 @@ public class Ventas extends javax.swing.JFrame {
 
         jLabel3.setText("Buscar por: ");
 
+        buttonGroup1.add(jRadioButton1);
         jRadioButton1.setText("Tipo de pago");
         jRadioButton1.setContentAreaFilled(false);
         jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -279,14 +283,18 @@ public class Ventas extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup1.add(jRadioButton2);
         jRadioButton2.setText("Nit de Cliente");
 
+        buttonGroup1.add(jRadioButton3);
         jRadioButton3.setText("No.Factura");
         jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButton3ActionPerformed(evt);
             }
         });
+
+        jScrollPane11.setOpaque(false);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -650,7 +658,6 @@ public class Ventas extends javax.swing.JFrame {
             if (NoValido == 0)
             {
                 String nitcliente, factserie, pag;
-                String fecha = "20180101";
                 int pagada;
 
                 nitcliente = jTextField2.getText();
@@ -679,19 +686,18 @@ public class Ventas extends javax.swing.JFrame {
 
                 try
                 {
-                    PreparedStatement insertarDatos = cn.prepareStatement("INSERT INTO facturaventa(serieynumero,total,fecha,tipopago,pagada,clientes_id) VALUES(?,?,?,?,?,?)");
+                    PreparedStatement insertarDatos = cn.prepareStatement("INSERT INTO facturaventa(serieynumero,total,tipopago,pagada,clientes_id) VALUES(?,?,?,?,?)");
                     insertarDatos.setString(1, factserie);
                     insertarDatos.setString(2, "0");
-                    insertarDatos.setString(3, fecha);
-                    insertarDatos.setString(4, pag);
-                    insertarDatos.setString(6, idcliente);
+                    insertarDatos.setString(3, pag);
+                    insertarDatos.setString(5, idcliente);
                     if (pagada == 0)
                     {
-                        insertarDatos.setString(5, "0");
+                        insertarDatos.setString(4, "0");
                     }
                     else
                     {
-                        insertarDatos.setString(5, "1");
+                        insertarDatos.setString(4, "1");
                     }
                     insertarDatos.executeUpdate();
 
@@ -752,7 +758,6 @@ public class Ventas extends javax.swing.JFrame {
                     jLabel6.setVisible(true);
                     jTextField4.setText("");
                 }
-                ClienteExistente = 0;
 
             } catch (SQLException ex) {
                 Logger.getLogger(Compras.class.getName()).log(Level.SEVERE, null, ex);
@@ -772,13 +777,13 @@ public class Ventas extends javax.swing.JFrame {
         if (jTable1.getSelectedRow() > -1)
         {
             String nofactura = jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString();
-            try {
-                PreparedStatement BorrarDetalle = cn.prepareStatement("DELETE FROM detalleventa WHERE facturaventa_serieynumero = '"+nofactura+"'");
-                BorrarDetalle.executeUpdate();
-
-            } catch (SQLException ex) {
-                Logger.getLogger(Compras.class.getName()).log(Level.SEVERE, null, ex);
-            }
+//            try {
+//                PreparedStatement BorrarDetalle = cn.prepareStatement("DELETE FROM detalleventa WHERE facturaventa_serieynumero = '"+nofactura+"'");
+//                BorrarDetalle.executeUpdate();
+//
+//            } catch (SQLException ex) {
+//                Logger.getLogger(Compras.class.getName()).log(Level.SEVERE, null, ex);
+//            }
 
             try {
                 PreparedStatement BorrarFactura = cn.prepareStatement("DELETE FROM facturaventa WHERE serieynumero = '"+nofactura+"'");
@@ -843,7 +848,6 @@ public class Ventas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

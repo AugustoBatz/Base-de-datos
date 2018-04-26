@@ -122,8 +122,6 @@ public class Compras extends javax.swing.JFrame {
         jTextField3 = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
-        jLabel15 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel1 = new javax.swing.JPanel();
@@ -143,6 +141,7 @@ public class Compras extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/1486504353-cart-ecommerce-shop-commerce-supermarket-trolley-shopping_81310.png"))); // NOI18N
 
@@ -162,6 +161,8 @@ public class Compras extends javax.swing.JFrame {
                 RegresoMouseClicked(evt);
             }
         });
+
+        jPanel3.setOpaque(false);
 
         jLabel23.setText("Seleccionar proveedor:");
 
@@ -207,10 +208,6 @@ public class Compras extends javax.swing.JFrame {
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Credito", "Efectivo" }));
 
-        jLabel15.setText("Fecha:");
-
-        jButton1.setText("Siguiente");
-
         jButton2.setText("Siguiente");
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -227,7 +224,6 @@ public class Compras extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel15)
                             .addComponent(jLabel12)
                             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addGroup(jPanel3Layout.createSequentialGroup()
@@ -251,10 +247,8 @@ public class Compras extends javax.swing.JFrame {
                         .addGap(364, 364, 364))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(558, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(347, 347, 347))
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(362, 362, 362))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -277,18 +271,18 @@ public class Compras extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel14)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel15)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(106, 106, 106)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35))
+                .addGap(178, 178, 178))
         );
 
         jScrollPane12.setViewportView(jPanel3);
 
         jTabbedPane1.addTab("Ingreso de factura de compra", jScrollPane12);
+
+        jScrollPane1.setBackground(new java.awt.Color(51, 51, 51));
+
+        jPanel1.setOpaque(false);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -325,8 +319,10 @@ public class Compras extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup1.add(jRadioButton2);
         jRadioButton2.setText("Nit de Proveedor");
 
+        buttonGroup1.add(jRadioButton3);
         jRadioButton3.setText("No.Factura");
         jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -352,6 +348,7 @@ public class Compras extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup1.add(jRadioButton4);
         jRadioButton4.setText("Tipo pago");
         jRadioButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -752,7 +749,6 @@ public class Compras extends javax.swing.JFrame {
             if (NoValido == 0)
             {
                 String idprov, factserie, pag;
-                String fecha = "20180101";
                 int filaelegida, pagada;
 
                 filaelegida = jTable2.getSelectedRow();
@@ -763,19 +759,18 @@ public class Compras extends javax.swing.JFrame {
 
                 try 
                 {
-                    PreparedStatement insertarDatos = cn.prepareStatement("INSERT INTO facturacompra(serieynumero,total,fecha,tipopago,proveedores_id,pagada) VALUES(?,?,?,?,?,?)");
+                    PreparedStatement insertarDatos = cn.prepareStatement("INSERT INTO facturacompra(serieynumero,total,tipopago,proveedores_id,pagada) VALUES(?,?,?,?,?)");
                     insertarDatos.setString(1, factserie);
                     insertarDatos.setString(2, "0");
-                    insertarDatos.setString(3, fecha);
-                    insertarDatos.setString(4, pag);
-                    insertarDatos.setString(5, idprov);
+                    insertarDatos.setString(3, pag);
+                    insertarDatos.setString(4, idprov);
                     if (pagada == 0) 
                     {
-                        insertarDatos.setString(6, "0");
+                        insertarDatos.setString(5, "0");
                     }
                     else
                     {
-                        insertarDatos.setString(6, "1");
+                        insertarDatos.setString(5, "1");
                     }
                     insertarDatos.executeUpdate();
 
@@ -800,13 +795,6 @@ public class Compras extends javax.swing.JFrame {
         if (jTable1.getSelectedRow() > -1)
         {
             String nofactura = jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString();
-            try {
-                PreparedStatement BorrarDetalle = cn.prepareStatement("DELETE FROM detallecompra WHERE 	facturacompra_serieynumero = '"+nofactura+"'");
-                BorrarDetalle.executeUpdate();
-                
-            } catch (SQLException ex) {
-                Logger.getLogger(Compras.class.getName()).log(Level.SEVERE, null, ex);
-            }
  
             try {
                 PreparedStatement BorrarFactura = cn.prepareStatement("DELETE FROM facturacompra WHERE serieynumero = '"+nofactura+"'");
@@ -867,7 +855,6 @@ public class Compras extends javax.swing.JFrame {
     private javax.swing.JButton Inventario2;
     private javax.swing.JButton Regreso;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -879,7 +866,6 @@ public class Compras extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;

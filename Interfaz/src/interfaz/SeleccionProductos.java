@@ -1,5 +1,6 @@
 package interfaz;
 
+import java.awt.Color;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -21,6 +22,7 @@ public class SeleccionProductos extends javax.swing.JFrame {
     public SeleccionProductos(int noid, String facid, int subtot) 
     {
         initComponents();
+        this.getContentPane().setBackground(Color.decode("#86592d"));
         mostrarProductos();
         facturaid = facid;
         id = facid + "." + String.valueOf(noid);    
@@ -211,13 +213,13 @@ public class SeleccionProductos extends javax.swing.JFrame {
             Subtotal = Subtotal + sub;
             String subtotal = String.valueOf(sub);
             
-            PreparedStatement actualizarDatos;
-            try {
-                actualizarDatos = cn.prepareStatement("UPDATE producto SET existencia = '"+NuevaCant+"' WHERE idprod = '"+idprod+"'");
-                actualizarDatos.executeUpdate();
-            } catch (SQLException ex) {
-                Logger.getLogger(SeleccionProductos.class.getName()).log(Level.SEVERE, null, ex);
-            }
+//            PreparedStatement actualizarDatos;
+//            try {
+//                actualizarDatos = cn.prepareStatement("UPDATE producto SET existencia = '"+NuevaCant+"' WHERE idprod = '"+idprod+"'");
+//                actualizarDatos.executeUpdate();
+//            } catch (SQLException ex) {
+//                Logger.getLogger(SeleccionProductos.class.getName()).log(Level.SEVERE, null, ex);
+//            }
              
             try 
             {
@@ -264,13 +266,13 @@ public class SeleccionProductos extends javax.swing.JFrame {
             int antcant = Integer.parseInt(AntiguaCant);
             int NuevaCant = antcant + cant;
             
-            PreparedStatement actualizarDatos;
-            try {
-                actualizarDatos = cn.prepareStatement("UPDATE producto SET existencia = '"+NuevaCant+"' WHERE idprod = '"+idprod+"'");
-                actualizarDatos.executeUpdate();
-            } catch (SQLException ex) {
-                Logger.getLogger(SeleccionProductos.class.getName()).log(Level.SEVERE, null, ex);
-            }
+//            PreparedStatement actualizarDatos;
+//            try {
+//                actualizarDatos = cn.prepareStatement("UPDATE producto SET existencia = '"+NuevaCant+"' WHERE idprod = '"+idprod+"'");
+//                actualizarDatos.executeUpdate();
+//            } catch (SQLException ex) {
+//                Logger.getLogger(SeleccionProductos.class.getName()).log(Level.SEVERE, null, ex);
+//            }
             
             
             try 

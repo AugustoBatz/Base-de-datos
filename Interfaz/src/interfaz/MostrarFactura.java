@@ -1,5 +1,6 @@
 package interfaz;
 
+import java.awt.Color;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -16,6 +17,7 @@ public class MostrarFactura extends javax.swing.JFrame {
     
     public MostrarFactura(String nofac, String total) {
         initComponents();
+        this.getContentPane().setBackground(Color.decode("#86592d"));
         jLabel1.setText("");
         jLabel1.setText("Factura de compra " + nofac);
         jTextField1.setText(total);

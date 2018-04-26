@@ -3,8 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/juand/Desktop/Interfaz/src/interfaz/Conexion.java</file>
-            <file>file:/C:/Users/juand/Desktop/Interfaz/src/interfaz/ModificarProductos.java</file>
+            <file>file:/home/sys515/Documentos/Git/Base-de-datos/Interfaz/src/interfaz/Conexion.java</file>
+            <file>file:/home/sys515/Documentos/Git/Base-de-datos/Interfaz/src/interfaz/Historia.java</file>
+            <file>file:/home/sys515/Documentos/Git/Base-de-datos/Interfaz/src/interfaz/Inventario.java</file>
+            <file>file:/home/sys515/Documentos/Git/Base-de-datos/Interfaz/src/interfaz/Interfaz.java</file>
+            <file>file:/home/sys515/Documentos/Git/Base-de-datos/Interfaz/src/interfaz/Login.java</file>
+            <file>file:/home/sys515/Documentos/Git/Base-de-datos/Interfaz/src/interfaz/ModificarProductos.java</file>
+            <file>file:/home/sys515/Documentos/Git/Base-de-datos/Interfaz/src/interfaz/Menu.java</file>
         </group>
     </open-files>
 </project-private>

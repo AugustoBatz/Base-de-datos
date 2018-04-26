@@ -1,5 +1,6 @@
 package interfaz;
 
+import java.awt.Color;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -20,7 +21,9 @@ public class SeleccionProdVentas extends javax.swing.JFrame {
     
     public SeleccionProdVentas(int noid, String facid, int subtot) {
         initComponents();
+        this.getContentPane().setBackground(Color.decode("#72bbff"));
         mostrarProductos();
+        this.getContentPane().setBackground(Color.decode("#72bbff"));
         facturaid = facid;
         id = facid + "." + String.valueOf(noid);    
         Subtotal = subtot;
